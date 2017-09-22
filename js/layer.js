@@ -137,6 +137,6 @@ function makeWmsTileLayer (layer) {
 		crs: layer.crs || L.CRS.EPSG900913,
 		format: layer.format || 'image/png',
 		opacity: layer.opacity || .75,
-		tileSize: layer.tileSize || document.getElementById("map").clientWidth
+		tileSize: layer.tileSize || 1024
 	});
 }
