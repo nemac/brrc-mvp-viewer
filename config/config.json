@@ -309,7 +309,9 @@
 				"id": "MeanNDVI",
 				"name": "Mean Growing Season Greenness",
 				"info": "Mean NDVI within the growing season, i.e., between the beginning and end of growing season dates.",
-				"legend": "legends/aac.png"
+				"legend": "legends/aac.png",
+				"url": "https://landat-tiles.nemac.org/mapcache",
+				"tileSize": 256
 			},
 			{
 				"id": "Seasonality",

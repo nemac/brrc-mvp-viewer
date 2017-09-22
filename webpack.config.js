@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin('../css/landat.css')
@@ -45,12 +44,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		extractSass,
-		new UglifyJSPlugin({
-			sourceMap: true,
-			// Needed so uglify does not drop "unreachable" sass file in entry file
-			dead_code: false
-		})
+		extractSass
 	]
 
 };
