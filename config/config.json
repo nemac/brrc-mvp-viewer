@@ -2,7 +2,7 @@
 	"mapserverUrl": "https://gis.nemac.org/brrc",
 	"defaultLayerOpacity": 1,
 	"logo": {
-		"image": "imgs/landat_logo_blue.png",
+		"image": "",
 		"label": "Logo for the LanDat project",
 		"link": "https://landat.org",
 		"location": "leaflet-bottom leaflet-right"
@@ -53,9 +53,18 @@
 	],
 	"layout" : {
 		"layer-groups-order": [
-			 {
-				"id": "brrc-layers",
-				"name": "BRRC Layers",
+			{
+				"id": "L10",
+				"name": "L10",
+				"active": true
+			},
+			{
+				"id": "L50",
+				"name": "L50",
+				"active": true
+			},			{
+				"id": "L90",
+				"name": "L90",
 				"active": true
 			}
 		]
@@ -63,7 +72,7 @@
 	"active-layers": [
 	],
 	"layers" : {
-		"brrc-layers": [
+		"L10": [
 			{
 				"id": "L10_Spring_Day",
 				"name": "L10 Spring Day",
@@ -103,6 +112,90 @@
 				"id": "L10_Winter_Night",
 				"name": "L10 Winter Night",
 				"info": "L10 Winter Night"
+			}
+		],
+		"L50": [
+			{
+				"id": "L50_Spring_Day",
+				"name": "L50 Spring Day",
+				"info": "L50 Spring Day"
+			},
+			{
+				"id": "L50_Summer_Day",
+				"name": "L50 Summer Day",
+				"info": "L50 Summer Night"
+			},
+			{
+				"id": "L50_Autumn_Day",
+				"name": "L50 Autumn Day",
+				"info": "L50 Autumn Day"
+			},
+			{
+				"id": "L50_Winter_Day",
+				"name": "L50 Winter Day",
+				"info": "L50 Winter Day"
+			},
+			{
+				"id": "L50_Spring_Night",
+				"name": "L50 Spring Night",
+				"info": "L50 Spring Night"
+			},
+			{
+				"id": "L50_Summer_Night",
+				"name": "L50 Summer Night",
+				"info": "L50 Summer Night"
+			},
+			{
+				"id": "L50_Autumn_Night",
+				"name": "L50 Autumn Night",
+				"info": "L50 Autumn Night"
+			},
+			{
+				"id": "L50_Winter_Night",
+				"name": "L50 Winter Night",
+				"info": "L50 Winter Night"
+			}
+		],
+		"L90": [
+			{
+				"id": "L90_Spring_Day",
+				"name": "L90 Spring Day",
+				"info": "L90 Spring Day"
+			},
+			{
+				"id": "L90_Summer_Day",
+				"name": "L90 Summer Day",
+				"info": "L90 Summer Night"
+			},
+			{
+				"id": "L90_Autumn_Day",
+				"name": "L90 Autumn Day",
+				"info": "L90 Autumn Day"
+			},
+			{
+				"id": "L90_Winter_Day",
+				"name": "L90 Winter Day",
+				"info": "L90 Winter Day"
+			},
+			{
+				"id": "L90_Spring_Night",
+				"name": "L90 Spring Night",
+				"info": "L90 Spring Night"
+			},
+			{
+				"id": "L90_Summer_Night",
+				"name": "L90 Summer Night",
+				"info": "L90 Summer Night"
+			},
+			{
+				"id": "L90_Autumn_Night",
+				"name": "L90 Autumn Night",
+				"info": "L90 Autumn Night"
+			},
+			{
+				"id": "L90_Winter_Night",
+				"name": "L90 Winter Night",
+				"info": "L90 Winter Night"
 			}
 		]
 	}

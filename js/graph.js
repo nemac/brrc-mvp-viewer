@@ -568,12 +568,6 @@ function drawUpDownPolarWithCheckboxesAndThresholds (data, div, poi) {
 
   var charts = {};
 
-  var sortFunc = (a, b) => {
-    let aWeight = getSeasonWeight(a[0])
-    let bWeight = getSeasonWeight(b[0])
-    return aWeight - bWeight
-  }
-
   var getSeasonWeight = str => {
     return str.indexOf("Spring") > -1 ?
       0
@@ -584,18 +578,36 @@ function drawUpDownPolarWithCheckboxesAndThresholds (data, div, poi) {
     : 3
   }
 
-  data.plots = {
-    "L10_Day": data.filter( arr => {
-      return arr[0].indexOf("Day") > 0
-    }).sort(sortFunc),
-
-    "L10_Night": data.filter (arr => {
-      return arr[0].indexOf("Night") > 0
-    }).sort(sortFunc)
+  var sortFunc = (a, b) => {
+    let aWeight = getSeasonWeight(a[0])
+    let bWeight = getSeasonWeight(b[0])
+    return aWeight - bWeight
   }
 
-  data.plots["L10_Day"].push(data.plots["L10_Day"][0])
-  data.plots["L10_Night"].push(data.plots["L10_Night"][0])
+  var buildPlotData = (data, plotConditions) => {
+    var plotData = data.filter( arr => {
+      var toKeep = true
+      plotConditions.forEach(cond => {
+        if (arr[0].indexOf(cond) === -1) {
+          toKeep = false
+        }
+      })
+      return toKeep
+    }).sort(sortFunc)
+    // Add the first datapoint to the end of the list so
+    // the polar plot line "completes the circuit"
+    plotData.push(plotData[0])
+    return plotData
+  }
+
+  data.plots = {
+    "L10_Day"   : buildPlotData(data, ["L10", "Day"]),
+    "L50_Day"   : buildPlotData(data, ["L50", "Day"]),
+    "L90_Day"   : buildPlotData(data, ["L90", "Day"]),
+    "L10_Night" : buildPlotData(data, ["L10", "Night"]),
+    "L50_Night" : buildPlotData(data, ["L50", "Night"]),
+    "L90_Night" : buildPlotData(data, ["L90", "Night"])
+  }
 
   /**
    * This block of code draws the line that the data follows
@@ -641,7 +653,7 @@ function drawPolarPath(data, line, svg, plotName) {
     .attr("fill", "none")
     .attr("stroke-width", "1px")
     .attr("stroke", d => {
-      return plotName.indexOf("Day") > -1 ? "red" : "black"
+      return pullDistinctColor(d[0][0])
     })
 }
 
@@ -660,8 +672,7 @@ function drawLinearPoints(data, line, svg) {
     //.attr("r", 3)
     .attr("stroke", "#000")
     .attr("fill",function(d,i){
-      var plotName = d[0].indexOf("Day") > -1 ? "day" : "night"
-      return pullDistinctColor(plotName)
+      return pullDistinctColor(d[0])
     })
     .on("mouseover", handlePointMouseover)
     .on("mouseout", handlePointMouseout);
@@ -706,23 +717,23 @@ function createCheckbox(wrapper, key, type, poi, charts, data, line, svg) {
         handleCheckboxDisable(charts, plotName);
         removeKeyFromPOI(poi, key);
         //send google analytics graph year click off
-        dispatchGraphCheckboxClick(plotName + ' ' + type + ' timeseries off');
+        dispatchGraphCheckboxClick(plotName + ' ' + type + ' off');
       } else {
         handleCheckboxEnable(charts, plotName, data, line, svg);
         addKeyToPOI(poi, key);
         //send google analytics graph year click on
-        dispatchGraphCheckboxClick(plotName + ' ' + type + ' timeseries on');
+        dispatchGraphCheckboxClick(plotName + ' ' + type + '  on');
       }
       handleCheckboxSync(key + lat.toString().replace(".", "") + "-" + lng.toString().replace(".", ""), this.checked);
       updateShareUrl();
     });
 
   checkboxWrapper.append("label")
-    .text(key !== "baseline" ? key : "Baseline")
+    .text(key)
     .attr("for", type + "-" + key + lat.toString().replace(".", "") + "-" + lng.toString().replace(".", ""));
 
   checkboxWrapper.append("div")
-    .style("background", pullDistinctColor(key.indexOf("Day") > -1 ? "day" : "night"))
+    .style("background", pullDistinctColor(key))
     .classed("graph-pip-example", true);
 }
 
@@ -769,13 +780,27 @@ function dispatchGraphCheckboxClick (label) {
   });
 }
 
-function pullDistinctColor (plotType) {
+function pullDistinctColor (plotName) {
+  var timeOfDay = plotName.indexOf("Day") > -1 ? "day" : "night"
+  var plotLevel = plotName.indexOf("L10") > -1 ?
+    "L10"
+  : plotName.indexOf("L50") > -1 ?
+    "L50"
+  : "L90"
   var colorRamp = {
-    "day": "red",
-    "night": "black"
-  };
+    "day" : {
+      "L10" : "#f49141",
+      "L50" : "#f4c141",
+      "L90" : "#d4f442"
+    },
+    "night" : {
+      "L10": "#0b1026",
+      "L50": "#283fa3",
+      "L90": "#3d5adb"
+    }
+  }
 
-  return colorRamp[plotType];
+  return colorRamp[timeOfDay][plotLevel];
 }
 
 /* POLAR GRAPH HELPERS */

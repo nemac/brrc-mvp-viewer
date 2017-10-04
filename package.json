@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "webpack --progress",
 		"start-watch": "webpack --watch --progress",
-		"start-server": "webpack-dev-server --hot"
+		"start-server": "webpack-dev-server --inline --hot"
 	},
 	"dependencies": {
 		"leaflet-geosearch": "^2.0.3"

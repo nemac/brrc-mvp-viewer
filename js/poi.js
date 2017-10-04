@@ -74,7 +74,7 @@ export function createPOI (lat, lng, plots) {
 	return {
 		lat: lat,
 		lng: lng,
-		plots: plots || ["L10_Day", "L10_Night"]
+		plots: plots || ["L10_Day", "L50_Day", "L90_Day", "L10_Night", "L50_Night", "L90_Night"]
 	}
 }
 
