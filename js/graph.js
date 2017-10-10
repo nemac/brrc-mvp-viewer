@@ -686,7 +686,7 @@ function handlePointMouseover(d) {
 
 function handlePointMouseout(d) {
   tip.hide();
-  this.setAttribute("r", "2");
+  this.setAttribute("r", "3");
 
   var activeType = document.getElementsByClassName("graph-type-btn active")[0].getAttribute('data-type');
 
