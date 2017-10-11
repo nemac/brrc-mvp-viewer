@@ -40,21 +40,36 @@
 	"layout" : {
 		"layer-groups-order": [
 			{
-				"id": "Low",
-				"name": "12.5-125 Hz",
+				"id": "hourly-summer-L50-frequency-group-12-5--125-Hz",
+				"name": "Hourly Summer L50, Frequency Group: 12.5 - 125 Hz",
 				"active": true
 			},
 			{
-				"id": "High",
-				"name": "1600-12500 Hz",
+				"id": "hourly-summer-L50-frequency-group-1600--12500-Hz",
+				"name": "Hourly Summer L50, Frequency Group: 1600 - 12500 Hz",
 				"active": true
+			},
+			{
+				"id": "summer-daytime-levels",
+				"name": "Summer Daytime Levels",
+				"active": false
+			},
+			{
+				"id": "summer-nighttime-levels",
+				"name": "Summer Nighttime Levels",
+				"active": false
+			},
+			{
+				"id": "supporting-data",
+				"name": "Supporting Data",
+				"active": false
 			}
 		]
 	},
 	"active-layers": [
 	],
 	"layers" : {
-		"Low": [
+		"hourly-summer-L50-frequency-group-12-5--125-Hz": [
 			{
 				"id": "Summer_L50_dBZ_Hr00_Freq_12-125_Hz",
 				"name": "Hour 00",
@@ -117,7 +132,7 @@
 			}
 
 		],
-		"High": [
+		"hourly-summer-L50-frequency-group-1600--12500-Hz": [
 			{
 				"id": "Summer_L50_dBZ_Hr00_Freq_1600-12500_Hz",
 				"name": "Hour 00",
@@ -177,6 +192,48 @@
 				"id": "Summer_L50_dBZ_Hr22_Freq_1600-12500_Hz",
 				"name": "Hour 22",
 				"info": "Summer_L50_dBZ_Hr22_Freq_1600-12500_Hz"
+			}
+		],
+		"summer-daytime-levels": [
+			{
+				"id": "Summer_L10_dBA_Day",
+				"name": "L10",
+				"info": "L10"
+			},
+			{
+				"id": "Summer_L50_dBA_Day",
+				"name": "L50",
+				"info": "L50"
+			},
+			{
+				"id": "Summer_L90_dBA_Day",
+				"name": "L90",
+				"info": "L90"
+			}
+		],
+		"summer-nighttime-levels": [
+			{
+				"id": "Summer_L10_dBA_Night",
+				"name": "L10",
+				"info": "L10"
+			},
+			{
+				"id": "Summer_L50_dBA_Night",
+				"name": "L50",
+				"info": "L50"
+			},
+			{
+				"id": "Summer_L90_dBA_Night",
+				"name": "L90",
+				"info": "L90"
+			}
+
+		],
+		"supporting-data": [
+			{
+				"id": "Nighttime_Lights_270m",
+				"name": "Nighttime Lights (270m)",
+				"info": "Nighttime_Lights_270m"
 			}
 		]
 	}
