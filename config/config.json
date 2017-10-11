@@ -19,13 +19,12 @@
 	},
 	"baselayers" : [
 		{
-			"id": "esri-imagery",
-			"url": "https://{s}.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-			"attribution": "Powered by <a href='https://www.esri.com/'>ESRI</a> | ESRI, DigitalGlobe, GeoEye, i-cubed, USDA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, swisstopo, and the GIS User Community",
-			"subdomains": ["server", "services"],
-			"label": "ESRI Imagery",
-			"image": "imgs/esri-imagery.jpg",
-			"active": false
+			"id": "carto-light",
+			"url": "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+			"attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors, &copy; <a href='https://carto.com/attributions'>CARTO</a>",
+			"label": "CARTO Streets",
+			"image": "imgs/carto-light.jpg",
+			"active": true
 		},
 		{
 			"id": "esri-topo",
@@ -34,37 +33,20 @@
 			"subdomains": ["server", "services"],
 			"label": "ESRI Topo",
 			"image": "imgs/esri-topo.jpg",
-			"active": true
-		},
-		{
-			"id": "carto-light",
-			"url": "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
-			"attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors, &copy; <a href='https://carto.com/attributions'>CARTO</a>",
-			"label": "CARTO Streets",
-			"image": "imgs/carto-light.jpg",
-			"active": false
-		},
-		{
-			"id": "carto-dark",
-			"url": "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
-			"attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors, &copy; <a href='https://carto.com/attributions'>CARTO</a>",
 			"active": false
 		}
+
 	],
 	"layout" : {
 		"layer-groups-order": [
 			{
-				"id": "L10",
-				"name": "L10",
+				"id": "Low",
+				"name": "12.5-125 Hz",
 				"active": true
 			},
 			{
-				"id": "L50",
-				"name": "L50",
-				"active": true
-			},			{
-				"id": "L90",
-				"name": "L90",
+				"id": "High",
+				"name": "1600-12500 Hz",
 				"active": true
 			}
 		]
@@ -72,130 +54,129 @@
 	"active-layers": [
 	],
 	"layers" : {
-		"L10": [
+		"Low": [
 			{
-				"id": "L10_Spring_Day",
-				"name": "L10 Spring Day",
-				"info": "L10 Spring Day"
+				"id": "Summer_L50_dBZ_Hr00_Freq_12-125_Hz",
+				"name": "Hour 00",
+				"info": "Summer_L50_dBZ_Hr00_Freq_12-125_Hz"
 			},
 			{
-				"id": "L10_Summer_Day",
-				"name": "L10 Summer Day",
-				"info": "L10 Summer Night"
+				"id": "Summer_L50_dBZ_Hr02_Freq_12-125_Hz",
+				"name": "Hour 02",
+				"info": "Summer_L50_dBZ_Hr02_Freq_12-125_Hz"
 			},
 			{
-				"id": "L10_Autumn_Day",
-				"name": "L10 Autumn Day",
-				"info": "L10 Autumn Day"
+				"id": "Summer_L50_dBZ_Hr04_Freq_12-125_Hz",
+				"name": "Hour 04",
+				"info": "Summer_L50_dBZ_Hr04_Freq_12-125_Hz"
 			},
 			{
-				"id": "L10_Winter_Day",
-				"name": "L10 Winter Day",
-				"info": "L10 Winter Day"
+				"id": "Summer_L50_dBZ_Hr06_Freq_12-125_Hz",
+				"name": "Hour 06",
+				"info": "Summer_L50_dBZ_Hr06_Freq_12-125_Hz"
 			},
 			{
-				"id": "L10_Spring_Night",
-				"name": "L10 Spring Night",
-				"info": "L10 Spring Night"
+				"id": "Summer_L50_dBZ_Hr08_Freq_12-125_Hz",
+				"name": "Hour 08",
+				"info": "Summer_L50_dBZ_Hr08_Freq_12-125_Hz"
 			},
 			{
-				"id": "L10_Summer_Night",
-				"name": "L10 Summer Night",
-				"info": "L10 Summer Night"
+				"id": "Summer_L50_dBZ_Hr10_Freq_12-125_Hz",
+				"name": "Hour 10",
+				"info": "Summer_L50_dBZ_Hr10_Freq_12-125_Hz"
 			},
 			{
-				"id": "L10_Autumn_Night",
-				"name": "L10 Autumn Night",
-				"info": "L10 Autumn Night"
+				"id": "Summer_L50_dBZ_Hr12_Freq_12-125_Hz",
+				"name": "Hour 12",
+				"info": "Summer_L50_dBZ_Hr12_Freq_12-125_Hz"
 			},
 			{
-				"id": "L10_Winter_Night",
-				"name": "L10 Winter Night",
-				"info": "L10 Winter Night"
+				"id": "Summer_L50_dBZ_Hr14_Freq_12-125_Hz",
+				"name": "Hour 14",
+				"info": "Summer_L50_dBZ_Hr14_Freq_12-125_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr16_Freq_12-125_Hz",
+				"name": "Hour 16",
+				"info": "Summer_L50_dBZ_Hr16_Freq_12-125_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr18_Freq_12-125_Hz",
+				"name": "Hour 18",
+				"info": "Summer_L50_dBZ_Hr18_Freq_12-125_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr20_Freq_12-125_Hz",
+				"name": "Hour 20",
+				"info": "Summer_L50_dBZ_Hr20_Freq_12-125_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr22_Freq_12-125_Hz",
+				"name": "Hour 22",
+				"info": "Summer_L50_dBZ_Hr22_Freq_12-125_Hz"
 			}
+
 		],
-		"L50": [
+		"High": [
 			{
-				"id": "L50_Spring_Day",
-				"name": "L50 Spring Day",
-				"info": "L50 Spring Day"
+				"id": "Summer_L50_dBZ_Hr00_Freq_1600-12500_Hz",
+				"name": "Hour 00",
+				"info": "Summer_L50_dBZ_Hr00_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L50_Summer_Day",
-				"name": "L50 Summer Day",
-				"info": "L50 Summer Night"
+				"id": "Summer_L50_dBZ_Hr02_Freq_1600-12500_Hz",
+				"name": "Hour 02",
+				"info": "Summer_L50_dBZ_Hr02_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L50_Autumn_Day",
-				"name": "L50 Autumn Day",
-				"info": "L50 Autumn Day"
+				"id": "Summer_L50_dBZ_Hr04_Freq_1600-12500_Hz",
+				"name": "Hour 04",
+				"info": "Summer_L50_dBZ_Hr04_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L50_Winter_Day",
-				"name": "L50 Winter Day",
-				"info": "L50 Winter Day"
+				"id": "Summer_L50_dBZ_Hr06_Freq_1600-12500_Hz",
+				"name": "Hour 06",
+				"info": "Summer_L50_dBZ_Hr06_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L50_Spring_Night",
-				"name": "L50 Spring Night",
-				"info": "L50 Spring Night"
+				"id": "Summer_L50_dBZ_Hr08_Freq_1600-12500_Hz",
+				"name": "Hour 08",
+				"info": "Summer_L50_dBZ_Hr08_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L50_Summer_Night",
-				"name": "L50 Summer Night",
-				"info": "L50 Summer Night"
+				"id": "Summer_L50_dBZ_Hr10_Freq_1600-12500_Hz",
+				"name": "Hour 10",
+				"info": "Summer_L50_dBZ_Hr10_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L50_Autumn_Night",
-				"name": "L50 Autumn Night",
-				"info": "L50 Autumn Night"
+				"id": "Summer_L50_dBZ_Hr12_Freq_1600-12500_Hz",
+				"name": "Hour 12",
+				"info": "Summer_L50_dBZ_Hr12_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L50_Winter_Night",
-				"name": "L50 Winter Night",
-				"info": "L50 Winter Night"
-			}
-		],
-		"L90": [
-			{
-				"id": "L90_Spring_Day",
-				"name": "L90 Spring Day",
-				"info": "L90 Spring Day"
+				"id": "Summer_L50_dBZ_Hr14_Freq_1600-12500_Hz",
+				"name": "Hour 14",
+				"info": "Summer_L50_dBZ_Hr14_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L90_Summer_Day",
-				"name": "L90 Summer Day",
-				"info": "L90 Summer Night"
+				"id": "Summer_L50_dBZ_Hr16_Freq_1600-12500_Hz",
+				"name": "Hour 16",
+				"info": "Summer_L50_dBZ_Hr16_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L90_Autumn_Day",
-				"name": "L90 Autumn Day",
-				"info": "L90 Autumn Day"
+				"id": "Summer_L50_dBZ_Hr18_Freq_1600-12500_Hz",
+				"name": "Hour 18",
+				"info": "Summer_L50_dBZ_Hr18_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L90_Winter_Day",
-				"name": "L90 Winter Day",
-				"info": "L90 Winter Day"
+				"id": "Summer_L50_dBZ_Hr20_Freq_1600-12500_Hz",
+				"name": "Hour 20",
+				"info": "Summer_L50_dBZ_Hr20_Freq_1600-12500_Hz"
 			},
 			{
-				"id": "L90_Spring_Night",
-				"name": "L90 Spring Night",
-				"info": "L90 Spring Night"
-			},
-			{
-				"id": "L90_Summer_Night",
-				"name": "L90 Summer Night",
-				"info": "L90 Summer Night"
-			},
-			{
-				"id": "L90_Autumn_Night",
-				"name": "L90 Autumn Night",
-				"info": "L90 Autumn Night"
-			},
-			{
-				"id": "L90_Winter_Night",
-				"name": "L90 Winter Night",
-				"info": "L90 Winter Night"
+				"id": "Summer_L50_dBZ_Hr22_Freq_1600-12500_Hz",
+				"name": "Hour 22",
+				"info": "Summer_L50_dBZ_Hr22_Freq_1600-12500_Hz"
 			}
 		]
 	}
