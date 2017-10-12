@@ -391,22 +391,21 @@ function drawUpDownPolarWithCheckboxesAndThresholds (data, div, poi) {
    * points will lie in our graph, so we set them to be between 0 and the
    * radius.
    */
+
+  var angleAccessor = (d, i) => {
+    let f = d[0]
+    let match = f.match(/Hr(\d\d)/)
+    let hour = Number(match[1])
+    return Math.PI * (hour / 12)
+  }
+
   var r = d3.scaleLinear()
     .domain([0, 70])
     .range([0, radius]);
 
   var line = d3.radialLine()
     .radius(function(d) { return r(d[1]) } )
-    .angle(function(d, i) {
-      let val = d[0].indexOf("Spring") > -1 ?
-        0
-      : d[0].indexOf("Summer") > -1 ?
-        1
-      : d[0].indexOf("Autumn") > -1 ?
-        2
-      : 3
-      return val * (Math.PI / 2)
-    });
+    .angle(angleAccessor)
 
   /**
    * Sets up the canvas where the circle will be drawn.
@@ -451,19 +450,12 @@ function drawUpDownPolarWithCheckboxesAndThresholds (data, div, poi) {
   var ga_a = svg.append("g")
     .attr("class", "a axis")
     .selectAll("g")
-    .data(d3.range(0, 360, 90))
+    .data(d3.range(0, 24, 2))
     .enter().append("g")
-      .attr("transform", function(d) { return "rotate(" + (d - 90) + ")"; });
+      .attr("transform", function(d) { return "rotate(" + (d*15 - 90) + ")"; });
 
   ga_a.append("line")
     .attr("x2", radius);
-
-  const SEASON_LABELS = [
-    "Spring",
-    "Summer",
-    "Autumn",
-    "Winter"
-  ]
 
   ga_a.append("text")
     .attr("x", radius + 6)
@@ -473,7 +465,7 @@ function drawUpDownPolarWithCheckboxesAndThresholds (data, div, poi) {
       let angle = d === 180 ? "270" : "90"
       return "rotate(" + angle + " " + (radius + 6) + ",0)";
     })
-    .text(function(d) { return SEASON_LABELS[d/90]; });
+    .text(function(d) { return d; });
 
 
   /**
@@ -568,20 +560,10 @@ function drawUpDownPolarWithCheckboxesAndThresholds (data, div, poi) {
 
   var charts = {};
 
-  var getSeasonWeight = str => {
-    return str.indexOf("Spring") > -1 ?
-      0
-    : str.indexOf("Summer") > -1 ?
-      1
-    : str.indexOf("Autumn") > -1 ?
-      2
-    : 3
-  }
-
   var sortFunc = (a, b) => {
-    let aWeight = getSeasonWeight(a[0])
-    let bWeight = getSeasonWeight(b[0])
-    return aWeight - bWeight
+    let aHour = Number(a[0].match(/Hr(\d\d)/)[1])
+    let bHour = Number(b[0].match(/Hr(\d\d)/)[1])
+    return aHour - bHour
   }
 
   var buildPlotData = (data, plotConditions) => {
@@ -601,12 +583,9 @@ function drawUpDownPolarWithCheckboxesAndThresholds (data, div, poi) {
   }
 
   data.plots = {
-    "L10_Day"   : buildPlotData(data, ["L10", "Day"]),
-    "L50_Day"   : buildPlotData(data, ["L50", "Day"]),
-    "L90_Day"   : buildPlotData(data, ["L90", "Day"]),
-    "L10_Night" : buildPlotData(data, ["L10", "Night"]),
-    "L50_Night" : buildPlotData(data, ["L50", "Night"]),
-    "L90_Night" : buildPlotData(data, ["L90", "Night"])
+    "L50 12.5-125Hz"   : buildPlotData(data, ["12-125"]),
+    "L50 160-1250Hz"   : buildPlotData(data, ["160-1250"]),
+    "L50 1600-12500Hz" : buildPlotData(data, ["1600-12500"])
   }
 
   /**
@@ -781,26 +760,11 @@ function dispatchGraphCheckboxClick (label) {
 }
 
 function pullDistinctColor (plotName) {
-  var timeOfDay = plotName.indexOf("Day") > -1 ? "day" : "night"
-  var plotLevel = plotName.indexOf("L10") > -1 ?
-    "L10"
-  : plotName.indexOf("L50") > -1 ?
-    "L50"
-  : "L90"
-  var colorRamp = {
-    "day" : {
-      "L10" : "#f49141",
-      "L50" : "#f4c141",
-      "L90" : "#d4f442"
-    },
-    "night" : {
-      "L10": "#0b1026",
-      "L50": "#283fa3",
-      "L90": "#3d5adb"
-    }
-  }
-
-  return colorRamp[timeOfDay][plotLevel];
+  // hackey af - MG
+  let groups = ["12-125", "12.5-125", "160-1250", "1600-12500"]
+  let colors = ["#0b1026", "#0b1026", "#283fa3", "#3d5adb"]
+  let g = groups.filter(g => plotName.indexOf(g) > -1).pop()
+  return colors[groups.indexOf(g)]
 }
 
 /* POLAR GRAPH HELPERS */

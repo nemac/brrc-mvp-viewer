@@ -42,12 +42,17 @@
 			{
 				"id": "hourly-summer-L50-frequency-group-12-5--125-Hz",
 				"name": "Hourly Summer L50, Frequency Group: 12.5 - 125 Hz",
-				"active": true
+				"active": false
+			},
+			{
+				"id": "hourly-summer-L50-frequency-group-160--1250-Hz",
+				"name": "Hourly Summer L50, Frequency Group: 160 - 1250 Hz",
+				"active": false
 			},
 			{
 				"id": "hourly-summer-L50-frequency-group-1600--12500-Hz",
 				"name": "Hourly Summer L50, Frequency Group: 1600 - 12500 Hz",
-				"active": true
+				"active": false
 			},
 			{
 				"id": "summer-daytime-levels",
@@ -132,6 +137,70 @@
 			}
 
 		],
+		
+		"hourly-summer-L50-frequency-group-160--1250-Hz": [
+			{
+				"id": "Summer_L50_dBZ_Hr00_Freq_160-1250_Hz",
+				"name": "Hour 00",
+				"info": "Summer_L50_dBZ_Hr00_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr02_Freq_160-1250_Hz",
+				"name": "Hour 02",
+				"info": "Summer_L50_dBZ_Hr02_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr04_Freq_160-1250_Hz",
+				"name": "Hour 04",
+				"info": "Summer_L50_dBZ_Hr04_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr06_Freq_160-1250_Hz",
+				"name": "Hour 06",
+				"info": "Summer_L50_dBZ_Hr06_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr08_Freq_160-1250_Hz",
+				"name": "Hour 08",
+				"info": "Summer_L50_dBZ_Hr08_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr10_Freq_160-1250_Hz",
+				"name": "Hour 10",
+				"info": "Summer_L50_dBZ_Hr10_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr12_Freq_160-1250_Hz",
+				"name": "Hour 12",
+				"info": "Summer_L50_dBZ_Hr12_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr14_Freq_160-1250_Hz",
+				"name": "Hour 14",
+				"info": "Summer_L50_dBZ_Hr14_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr16_Freq_160-1250_Hz",
+				"name": "Hour 16",
+				"info": "Summer_L50_dBZ_Hr16_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr18_Freq_160-1250_Hz",
+				"name": "Hour 18",
+				"info": "Summer_L50_dBZ_Hr18_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr20_Freq_160-1250_Hz",
+				"name": "Hour 20",
+				"info": "Summer_L50_dBZ_Hr20_Freq_160-1250_Hz"
+			},
+			{
+				"id": "Summer_L50_dBZ_Hr22_Freq_160-1250_Hz",
+				"name": "Hour 22",
+				"info": "Summer_L50_dBZ_Hr22_Freq_160-1250_Hz"
+			}
+		],
+
 		"hourly-summer-L50-frequency-group-1600--12500-Hz": [
 			{
 				"id": "Summer_L50_dBZ_Hr00_Freq_1600-12500_Hz",
