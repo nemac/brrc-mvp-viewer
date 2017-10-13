@@ -762,7 +762,7 @@ function dispatchGraphCheckboxClick (label) {
 function pullDistinctColor (plotName) {
   // hackey af - MG
   let groups = ["12-125", "12.5-125", "160-1250", "1600-12500"]
-  let colors = ["#0b1026", "#0b1026", "#283fa3", "#3d5adb"]
+  let colors = ["red", "red", "green", "blue"]
   let g = groups.filter(g => plotName.indexOf(g) > -1).pop()
   return colors[groups.indexOf(g)]
 }
